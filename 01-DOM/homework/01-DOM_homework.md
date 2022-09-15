@@ -74,7 +74,7 @@ const div = document.getElementById("divId");
 
 En este ejempo estamos buscando el elemento cuyo id es igual a 'divId'
 
-3. `querySelecto` : _document.querySelector_ es un método que busca los elementos basándose en uno o más selectores CSS. Recordemos que es posible hacer referencia a clases utilizando un ., a ids con # y a elementos usando el nombre de su etiqueta directamente. Es recomendable utilizar sólo ids con querySelector ya que sólo retornará el primer elemento que coincida con el selector indicado. Ejemplo:
+3. `querySelector` : _document.querySelector_ es un método que busca los elementos basándose en uno o más selectores CSS. Recordemos que es posible hacer referencia a clases utilizando un ., a ids con # y a elementos usando el nombre de su etiqueta directamente. Es recomendable utilizar sólo ids con querySelector ya que sólo retornará el primer elemento que coincida con el selector indicado. Ejemplo:
 
 ```javascript
 const div = document.querySelector(".divId");
