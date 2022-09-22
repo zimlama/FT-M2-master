@@ -1,4 +1,5 @@
 var enlace = "http://localhost:5000/amigos"
+//cuando ejecuto el boton
 $("#boton").click(function() {
     // Limpiar la lista cuando da click para que no la replique
     $("#lista").empty();
