@@ -1,34 +1,110 @@
-import React from 'react';
-import './App.css';
-import Card from './components/Card.jsx';
-import Cards from './components/Cards.jsx';
-import SearchBar from './components/SearchBar.jsx';
-import data, { Cairns } from './data.js';
+import React, { useState } from "react";
+import "./App.css";
+import { Denver, Cairns, Londres } from "./components/data/Data.js";
+import Card from "./components/card/Card";
+import Cards from "./components/cards/Cards";
+import Searchbar from "./components/searchbar/Searchbar"
+
+var ciudades = [Denver, Cairns, Londres];
 
 function App() {
+  const [city, setCity] = useState({
+    temp_max: "",
+    temp_min: "",
+    name: "",
+  });
+
+  const [input, setInput] = useState("");
+
+  function handleChange(e) {
+    setInput({ ...input, [e.target.name]: e.target.value });
+    console.log(input);
+  }
+
   return (
     <div className="App">
       <div>
-        <Card
-          max={Cairns.main.temp_max}
-          min={Cairns.main.temp_min}
-          name={Cairns.name}
-          img={Cairns.weather[0].icon}
-          onClose={() => alert(Cairns.name)}
-        />
+{/* --------- Homework 06-React-Intro --------- INIT */}
+{/* --------- Homework 07-React-Estilos --------- INIT */}
+       <div>Weather Cities</div>
+        <div>
+          <Card
+            temp_min={Denver.main.temp_min}
+            temp_max={Denver.main.temp_max}
+            img_src={Denver.weather[0].icon}
+            name={Denver.name}
+          />
+        </div>
+        <div>
+          {ciudades.map((ciudad) => (
+            <Cards
+              temp_min={ciudad.main.temp_min}
+              temp_max={ciudad.main.temp_max}
+              img_src={ciudad.weather[0].icon}
+              name={ciudad.name}
+              boxes={ciudad.boxes}
+            />
+          ))}
+          <div>
+           <Searchbar />
+         </div>
+        </div>
       </div>
-      <hr />
+{/* --------- Homework 06-React-Intro --------- END */}
+{/* --------- Homework 07-React-Estilos --------- END */}
       <div>
-        <Cards
-          cities={data}
-        />
+        <ul className="menu">
+          <li>Menu</li>
+          <li>Ciudades</li>
+          <li>Ayuda</li>
+        </ul>
       </div>
-      <hr />
+      
+
       <div>
-        <SearchBar
-          onSearch={(ciudad) => alert(ciudad)}
-        />
+        <form>
+          <br />
+          <input
+            onChange={(e) => handleChange(e)}
+            type="text"
+            name="ciudad"
+            placeholder="ingrese aqui la ciudad"
+          />
+          <br />
+          <input
+            onChange={(e) => handleChange(e)}
+            type="text"
+            name="url"
+            placeholder="ingrese aqui el url del icono"
+          />
+          <br />
+          <input
+            onChange={(e) => handleChange(e)}
+            name="temp_min"
+            type="text"
+            placeholder="ingrese aqui la temp min"
+          />
+          <br />
+          <input
+            onChange={(e) => handleChange(e)}
+            name="temp_max"
+            type="text"
+            placeholder="ingrese aqui la temp max"
+          />
+          <button>Ingresar info</button>
+          <div>
+            <Card
+              temp_min={input.temp_min}
+              temp_max={input.temp_max}
+              img_src={input.img_src}
+              name={input.ciudad}
+            />
+          </div>
+        </form>
       </div>
+      
+
+      <div>Footer</div>
     </div>
   );
 }
