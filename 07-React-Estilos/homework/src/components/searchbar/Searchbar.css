@@ -1,0 +1,36 @@
+
+.box-Searchbar {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+  #leftbox-Searchbar {
+    align-items: center;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: right;
+    height: 10%;
+    float:left;
+    width:50%;
+    height:80px;
+  }
+  
+  #rightbox-Searchbar {
+    align-items: center;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: left;
+    height: 10%;
+    float:right;
+    width:50%;
+    height:80px;
+  }
+  .btn-Searchbar{
+    margin: 0.5rem;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(0, 136, 255);
+    border-color: rgb(0, 124, 192);
+  }
